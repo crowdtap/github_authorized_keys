@@ -1,0 +1,5 @@
+organization: 'crowdtap'
+oauth_token: 'github-oauth-token-here'
+additional_keys:
+  - '# comment for authorized_keys file'
+  - 'ssh-rsa ssh-key'
