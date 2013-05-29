@@ -25,7 +25,7 @@ module GithubAuthorizedKeys
           end
         end
 
-        authorized_keys.join('\n')
+        authorized_keys.join("\n")
       rescue Errno::ENOENT
         $stderr.puts "Unable to read configuration file: '#{config_file}'" unless $testing
         read_original_authorized_keys
@@ -36,9 +36,9 @@ module GithubAuthorizedKeys
 
     def github_http_get(url, headers)
       unless @github_http
-        github = Net::HTTP.new('api.github.com', 443)
-        github.use_ssl = true
-        github.verify_mode = OpenSSL::SSL::VERIFY_NONE
+        @github_http = Net::HTTP.new('api.github.com', 443)
+        @github_http.use_ssl = true
+        @github_http.verify_mode = OpenSSL::SSL::VERIFY_NONE
       end
 
       JSON.parse(@github_http.request_get(url, headers).body)

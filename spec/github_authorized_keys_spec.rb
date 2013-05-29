@@ -28,9 +28,9 @@ describe GithubAuthorizedKeys::CLI do
       '# first',  'ssh-rsa 1',
       '# second', 'ssh-rsa 2',
       '# third',  'ssh-rsa 3', 'ssh-rsa 4'
-    ].join('\n')
+    ].join("\n")
 
-    subject.run.should == expected
+    subject.run(nil).should == expected
   end
 
   it "generates a proper authorized_keys file" do
@@ -42,8 +42,8 @@ describe GithubAuthorizedKeys::CLI do
       '# first',  'ssh-rsa 1',
       '# second', 'ssh-rsa 2',
       '# third',  'ssh-rsa 3', 'ssh-rsa 4'
-    ].join('\n')
+    ].join("\n")
 
-    subject.run.should == expected
+    subject.run(nil).should == expected
   end
 end
