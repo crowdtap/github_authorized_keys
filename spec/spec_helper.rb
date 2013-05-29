@@ -1,3 +1,5 @@
+$testing = true
+
 require 'bundler'
 Bundler.require
 
@@ -12,5 +14,3 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = 'default'
 end
-
-$testing = true
