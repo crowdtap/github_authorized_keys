@@ -1,9 +1,6 @@
-require 'rubygems'
 require 'net/https'
 require 'json'
 require 'yaml'
-
-require "github_authorized_keys/version"
 
 module GithubAuthorizedKeys
   class CLI
