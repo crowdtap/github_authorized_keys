@@ -9,7 +9,7 @@ module GithubAuthorizedKeys
   class CLI
     attr_reader :config, :headers
 
-    def run(config_file = '~/.github_authorized_keys.yml')
+    def run(config_file)
       begin
         load_config(config_file)
         @headers = {'User-Agent' => "#{config['organization']} authorized_keys generator"}
@@ -56,11 +56,12 @@ module GithubAuthorizedKeys
     end
 
     def load_config(config_file)
+      config_file ||= "#{ENV['HOME']}/.github_authorized_keys.yml"
       @config = YAML.load_file(config_file)
     end
 
     def read_original_authorized_keys
-      File.open('~/.ssh/authorized_keys') do |file|
+      File.open("#{ENV['HOME']}/.ssh/authorized_keys") do |file|
         while(line = file.gets)
           puts line
         end
