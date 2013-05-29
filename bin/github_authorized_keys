@@ -1,10 +1,6 @@
 #!/usr/bin/env ruby
 
-begin
-  require 'github_authorized_keys'
-rescue
-  require 'rubygems'
-  retry
-end
+require 'rubygems'
+require 'github_authorized_keys'
 
 puts GithubAuthorizedKeys::CLI.new.run(ARGV.first)
